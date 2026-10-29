@@ -1,0 +1,284 @@
+/*  INFX 472-001-202720 Full Stack Web Development
+    Group 3 - Samuel A., Avery S., Mason Z.
+    Project 4 - style.css
+*/
+
+/* =================================================================
+   1. root variables & global reset
+   ================================================================ */
+:root {
+    --dark-slate: #264653;
+    --teal: #2A9D8F;
+    --yellow: #E9C46A;
+    --orange: #F4A261;
+    --coral: #E76F51;
+    --bg-color: #f4f6f8;
+    --card-bg: #ffffff;
+    --text-main: #333333;
+    --text-muted: #666666;
+    --border-color: #d1d5db;
+    --radius: 8px;
+    --transition: all 0.25s ease-in-out;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* =================================================================
+   2. header & controls bar (live search & filtering)
+   ================================================================ */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    background: var(--card-bg);
+    padding: 20px 25px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+header h1 {
+    color: var(--dark-slate);
+    font-size: 1.8rem;
+}
+
+.controls-bar {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.controls-bar input,
+.controls-bar select {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.controls-bar input:focus,
+.controls-bar select:focus {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.15);
+}
+
+/* =================================================================
+   3. contact cards grid & cards design
+   ================================================================ */
+#contactContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.contact-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    transition: var(--transition);
+    border-top: 5px solid var(--dark-slate);
+}
+
+.contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.card-header h3 {
+    font-size: 1.2rem;
+    color: var(--dark-slate);
+}
+
+.card-body {
+    padding: 15px 20px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.card-body p {
+    margin-bottom: 8px;
+}
+
+.card-body strong {
+    color: var(--text-main);
+}
+
+/* group badges using the color palette */
+.badge {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge.family {
+    background-color: rgba(233, 196, 106, 0.2);
+    color: #b58900;
+}
+
+.badge.friends {
+    background-color: rgba(42, 157, 143, 0.2);
+    color: var(--teal);
+}
+
+.badge.business {
+    background-color: rgba(38, 70, 83, 0.2);
+    color: var(--dark-slate);
+}
+
+/* card actions (edit / delete buttons) */
+.card-actions {
+    display: flex;
+    border-top: 1px solid #edf2f7;
+    background: #fafbfc;
+}
+
+.card-actions button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-edit {
+    color: var(--teal);
+    border-right: 1px solid #edf2f7;
+}
+.btn-edit:hover {
+    background-color: rgba(42, 157, 143, 0.1);
+}
+
+.btn-delete {
+    color: var(--coral);
+}
+.btn-delete:hover {
+    background-color: rgba(231, 111, 81, 0.1);
+}
+
+/* =================================================================
+   4. buttons & general UI elements
+   ================================================================ */
+.btn-primary {
+    background-color: var(--teal);
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    background-color: #218376;
+}
+
+/* loading spinner */
+.spinner {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+.no-contacts {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    color: var(--text-muted);
+}
+
+/* =================================================================
+   5. creative ddditions styling
+   ================================================================ */
+/* click-to-copy feature */
+.copyable {
+    cursor: pointer;
+    border-bottom: 1px dashed var(--teal);
+    transition: var(--transition);
+}
+
+.copyable:hover {
+    color: var(--teal);
+    background-color: rgba(42, 157, 143, 0.08);
+}
+
+/* toast notifications container */
+#toastContainer {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    min-width: 250px;
+    padding: 15px 20px;
+    border-radius: var(--radius);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+.toast.success {
+    background-color: var(--teal);
+}
+
+.toast.error {
+    background-color: var(--coral);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
