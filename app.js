@@ -97,7 +97,7 @@ $(document).ready(function() {
             showToast(
                 'This Edit button is missing its contact data.',
                 'error'
-            );
+            )
             return;
         }
 
