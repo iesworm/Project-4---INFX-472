@@ -55,7 +55,11 @@ foreach ($contacts as $c) {
             ' . (!empty($c['notes']) ? '<p><strong>Notes:</strong> ' . htmlspecialchars($c['notes']) . '</p>' : '') . '
         </div>
         <div class="card-actions">
-            <button class="btn-edit" data-id="' . $c['id'] . '">Edit</button>
+            <button type="button" class="btn-edit"
+            data-id="' . (int) $c['id'] . '"
+            data-contact="' . htmlspecialchars(json_encode($c), ENT_QUOTES, 'UTF-8') . '">
+            Edit
+            </button>
             <button class="btn-delete" data-id="' . $c['id'] . '">Delete</button>
         </div>
     </div>';
