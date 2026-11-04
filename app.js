@@ -92,8 +92,21 @@
                         loadContacts();
                     } else {
                         showToast(response.message, 'error');
+                    
                     }
                 }
+                // Open the Add Contact form.
+                $('#openAddModalBtn').on('click', function() {
+                $('#contactForm')[0].reset();
+                $('#contactId').val('');
+                $('#modalTitle').text('Add New Contact');
+                $('#contactModal').show();
+            });
+            
+            // Close the form when Cancel is clicked.
+            $('#closeModalBtn').on('click', function() {
+                $('#contactModal').hide();
+});
             });
         }
     });
